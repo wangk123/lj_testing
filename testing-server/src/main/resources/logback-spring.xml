@@ -90,7 +90,7 @@
         <appender-ref ref="fileErrorLog"/>
     </root>
 
-    <logger name="com.bgw.testing" level="DEBUG" additivity="false">
+    <logger name="com.lj.testing.dao" level="DEBUG" additivity="false">
         <appender-ref ref="console"/>
         <appender-ref ref="fileInfoLog"/>
         <appender-ref ref="fileErrorLog"/>

@@ -1,14 +1,15 @@
 package com.lj.testing;
 
-import com.lj.testing.mapper.basealtic.LjUsersMapper;
-import com.lj.testing.pojo.basealtic.LjUsers;
+import com.lj.testing.dao.mapper.basealtic.LjUsersMapper;
+import com.lj.testing.dao.pojo.basealtic.LjUsers;
+import com.lj.testing.server.TestingApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-@SpringBootTest
+@SpringBootTest(classes = TestingApplication.class)
 public class TestingApplicationTests extends AbstractTestNGSpringContextTests {
 
     @Autowired
