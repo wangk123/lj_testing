@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <properties resource="mybatis-generator/mybatis-generator.properties"/>
+    <!-- classPathEntry:数据库的JDBC驱动 -->
+    <classPathEntry location="${db_driver_path}"/>
+    <context id="context" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$"/>
+            <property name="replaceString" value="Criteria"/>
+        </plugin>
+
+        <commentGenerator>
+            <!-- 删除代码中带有 代码生成器的注释信息 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+        <!--数据库连接信息。 -->
+        <jdbcConnection driverClass="${db_driver}" connectionURL="${db_url}" userId="${db_username}"
+                        password="${db_password}"/>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- targetProject:自动生成代码的位置 -->
+        <javaModelGenerator targetPackage="${model_package}" targetProject="${model_target_project}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="${sqlmapper_package}" targetProject="${sqlmapper_target_project}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="${dao_package}" targetProject="${dao_target_project}" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="lj_users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        <!-- user_event_record_888888表结构里biz_data，dynamic_info字段是longtext类型，
+        这样处理产生的Xml文件自动会把这个字段转换为VARCHAR； 并且entity里面不会多生成UserEventRecordWithBlobs文件 -->
+            <!--<columnOverride column="http" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="script" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="pre_script" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="test_script" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        </table>
+        <!--<table tableName="ts_case_basic_info" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+
+    </context>
+</generatorConfiguration>

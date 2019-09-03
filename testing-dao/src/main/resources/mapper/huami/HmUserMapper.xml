@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lj.testing.mapper.huami.HmUserMapper">
+  <resultMap id="BaseResultMap" type="com.lj.testing.pojo.huami.HmUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uri" jdbcType="CHAR" property="uri" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="role" jdbcType="BIT" property="role" />
+    <result column="invite_from" jdbcType="CHAR" property="inviteFrom" />
+    <result column="invite_code" jdbcType="CHAR" property="inviteCode" />
+    <result column="level" jdbcType="TINYINT" property="level" />
+    <result column="login_at" jdbcType="INTEGER" property="loginAt" />
+    <result column="is_black" jdbcType="BIT" property="isBlack" />
+    <result column="update_at" jdbcType="INTEGER" property="updateAt" />
+    <result column="delete_at" jdbcType="INTEGER" property="deleteAt" />
+    <result column="create_at" jdbcType="INTEGER" property="createAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uri, nickname, avatar, phone, sex, password, role, invite_from, invite_code, 
+    level, login_at, is_black, update_at, delete_at, create_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from hm_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from hm_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lj.testing.pojo.huami.HmUser">
+    insert into hm_user (id, uri, nickname, 
+      avatar, phone, sex, password, 
+      role, invite_from, invite_code, 
+      level, login_at, is_black, 
+      update_at, delete_at, create_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{uri,jdbcType=CHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}, #{sex,jdbcType=BIT}, #{password,jdbcType=VARCHAR}, 
+      #{role,jdbcType=BIT}, #{inviteFrom,jdbcType=CHAR}, #{inviteCode,jdbcType=CHAR}, 
+      #{level,jdbcType=TINYINT}, #{loginAt,jdbcType=INTEGER}, #{isBlack,jdbcType=BIT}, 
+      #{updateAt,jdbcType=INTEGER}, #{deleteAt,jdbcType=INTEGER}, #{createAt,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lj.testing.pojo.huami.HmUser">
+    insert into hm_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uri != null">
+        uri,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="inviteFrom != null">
+        invite_from,
+      </if>
+      <if test="inviteCode != null">
+        invite_code,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="loginAt != null">
+        login_at,
+      </if>
+      <if test="isBlack != null">
+        is_black,
+      </if>
+      <if test="updateAt != null">
+        update_at,
+      </if>
+      <if test="deleteAt != null">
+        delete_at,
+      </if>
+      <if test="createAt != null">
+        create_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uri != null">
+        #{uri,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=BIT},
+      </if>
+      <if test="inviteFrom != null">
+        #{inviteFrom,jdbcType=CHAR},
+      </if>
+      <if test="inviteCode != null">
+        #{inviteCode,jdbcType=CHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=TINYINT},
+      </if>
+      <if test="loginAt != null">
+        #{loginAt,jdbcType=INTEGER},
+      </if>
+      <if test="isBlack != null">
+        #{isBlack,jdbcType=BIT},
+      </if>
+      <if test="updateAt != null">
+        #{updateAt,jdbcType=INTEGER},
+      </if>
+      <if test="deleteAt != null">
+        #{deleteAt,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        #{createAt,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lj.testing.pojo.huami.HmUser">
+    update hm_user
+    <set>
+      <if test="uri != null">
+        uri = #{uri,jdbcType=CHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=BIT},
+      </if>
+      <if test="inviteFrom != null">
+        invite_from = #{inviteFrom,jdbcType=CHAR},
+      </if>
+      <if test="inviteCode != null">
+        invite_code = #{inviteCode,jdbcType=CHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=TINYINT},
+      </if>
+      <if test="loginAt != null">
+        login_at = #{loginAt,jdbcType=INTEGER},
+      </if>
+      <if test="isBlack != null">
+        is_black = #{isBlack,jdbcType=BIT},
+      </if>
+      <if test="updateAt != null">
+        update_at = #{updateAt,jdbcType=INTEGER},
+      </if>
+      <if test="deleteAt != null">
+        delete_at = #{deleteAt,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null">
+        create_at = #{createAt,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lj.testing.pojo.huami.HmUser">
+    update hm_user
+    set uri = #{uri,jdbcType=CHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=CHAR},
+      sex = #{sex,jdbcType=BIT},
+      password = #{password,jdbcType=VARCHAR},
+      role = #{role,jdbcType=BIT},
+      invite_from = #{inviteFrom,jdbcType=CHAR},
+      invite_code = #{inviteCode,jdbcType=CHAR},
+      level = #{level,jdbcType=TINYINT},
+      login_at = #{loginAt,jdbcType=INTEGER},
+      is_black = #{isBlack,jdbcType=BIT},
+      update_at = #{updateAt,jdbcType=INTEGER},
+      delete_at = #{deleteAt,jdbcType=INTEGER},
+      create_at = #{createAt,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

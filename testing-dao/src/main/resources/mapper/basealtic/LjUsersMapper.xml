@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lj.testing.mapper.basealtic.LjUsersMapper">
+  <resultMap id="BaseResultMap" type="com.lj.testing.pojo.basealtic.LjUsers">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sex" jdbcType="CHAR" property="sex" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="CHAR" property="phone" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="register_type" jdbcType="TINYINT" property="registerType" />
+    <result column="remember_token" jdbcType="VARCHAR" property="rememberToken" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="role" jdbcType="VARCHAR" property="role" />
+    <result column="register_ip" jdbcType="VARCHAR" property="registerIp" />
+    <result column="login_at" jdbcType="TIMESTAMP" property="loginAt" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sex, status, name, nickname, email, phone, password, avatar, register_type, remember_token, 
+    created_at, updated_at, deleted_at, area, role, register_ip, login_at, channel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from lj_users
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from lj_users
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lj.testing.pojo.basealtic.LjUsers">
+    insert into lj_users (id, sex, status, 
+      name, nickname, email, 
+      phone, password, avatar, 
+      register_type, remember_token, created_at, 
+      updated_at, deleted_at, area, 
+      role, register_ip, login_at, 
+      channel)
+    values (#{id,jdbcType=INTEGER}, #{sex,jdbcType=CHAR}, #{status,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=CHAR}, #{password,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{registerType,jdbcType=TINYINT}, #{rememberToken,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP}, #{deletedAt,jdbcType=TIMESTAMP}, #{area,jdbcType=VARCHAR}, 
+      #{role,jdbcType=VARCHAR}, #{registerIp,jdbcType=VARCHAR}, #{loginAt,jdbcType=TIMESTAMP}, 
+      #{channel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lj.testing.pojo.basealtic.LjUsers">
+    insert into lj_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="registerType != null">
+        register_type,
+      </if>
+      <if test="rememberToken != null">
+        remember_token,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="deletedAt != null">
+        deleted_at,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="role != null">
+        role,
+      </if>
+      <if test="registerIp != null">
+        register_ip,
+      </if>
+      <if test="loginAt != null">
+        login_at,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="registerType != null">
+        #{registerType,jdbcType=TINYINT},
+      </if>
+      <if test="rememberToken != null">
+        #{rememberToken,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null">
+        #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lj.testing.pojo.basealtic.LjUsers">
+    update lj_users
+    <set>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="registerType != null">
+        register_type = #{registerType,jdbcType=TINYINT},
+      </if>
+      <if test="rememberToken != null">
+        remember_token = #{rememberToken,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deletedAt != null">
+        deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="role != null">
+        role = #{role,jdbcType=VARCHAR},
+      </if>
+      <if test="registerIp != null">
+        register_ip = #{registerIp,jdbcType=VARCHAR},
+      </if>
+      <if test="loginAt != null">
+        login_at = #{loginAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channel != null">
+        channel = #{channel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lj.testing.pojo.basealtic.LjUsers">
+    update lj_users
+    set sex = #{sex,jdbcType=CHAR},
+      status = #{status,jdbcType=TINYINT},
+      name = #{name,jdbcType=VARCHAR},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=CHAR},
+      password = #{password,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      register_type = #{registerType,jdbcType=TINYINT},
+      remember_token = #{rememberToken,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      deleted_at = #{deletedAt,jdbcType=TIMESTAMP},
+      area = #{area,jdbcType=VARCHAR},
+      role = #{role,jdbcType=VARCHAR},
+      register_ip = #{registerIp,jdbcType=VARCHAR},
+      login_at = #{loginAt,jdbcType=TIMESTAMP},
+      channel = #{channel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
