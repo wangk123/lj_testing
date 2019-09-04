@@ -1,0 +1,6 @@
+currentEnv: test
+env:
+  test:
+    "business.web.url": "https://buzz.ju-inc.com"
+  dev:
+    "business.web.url": "http://buzz.ju-inc.com11"

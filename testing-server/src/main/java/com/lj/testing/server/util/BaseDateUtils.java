@@ -1,7 +1,7 @@
 package com.lj.testing.server.util;
 
-import com.lj.testing.common.DateStyle;
-import com.lj.testing.common.Week;
+import com.lj.testing.common.enums.DateStyle;
+import com.lj.testing.common.enums.Week;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

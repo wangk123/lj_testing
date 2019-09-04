@@ -1,4 +1,4 @@
-package com.lj.testing.common;
+package com.lj.testing.common.enums;
 
 public enum Week {
 

@@ -1,0 +1,5 @@
+method: post
+url: /base_api/business/webLogin
+body:
+  account: ""
+  password: ""
