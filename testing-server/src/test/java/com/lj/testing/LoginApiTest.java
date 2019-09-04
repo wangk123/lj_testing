@@ -19,7 +19,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @SpringBootTest(classes = TestingApplication.class)
-public class TestingApplicationTests extends AbstractTestNGSpringContextTests {
+public class LoginApiTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private Login login;

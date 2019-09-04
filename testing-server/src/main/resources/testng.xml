@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SuiteName" verbose="1" >
+    <test name="登录">
+        <classes>
+            <class name="com.lj.testing.LoginApiTest"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.lj.testing.server.config.ExtentTestNGITestListener"/>
+    </listeners>
+</suite>
