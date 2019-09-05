@@ -17,5 +17,4 @@ public interface LjUsersMapper {
     int updateByPrimaryKey(LjUsers record);
 
     LjUsers selectByPhone(@Param(value = "phone") String phone);
-
 }
