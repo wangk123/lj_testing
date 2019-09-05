@@ -5,6 +5,7 @@ import com.lj.testing.dao.pojo.basealtic.LjUsers;
 import com.lj.testing.server.TestingApplication;
 import com.lj.testing.server.business.BusinessWebApi;
 import com.lj.testing.server.business.user.Login;
+import com.lj.testing.server.config.MailServiceImpl;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class LoginApiTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     private Login login;
+    @Autowired
+    private MailServiceImpl mailService;
 
     @Autowired
     private LjUsersMapper ljUsersMapper;
@@ -41,5 +44,21 @@ public class LoginApiTest extends AbstractTestNGSpringContextTests {
         assertThat(jsonPath.get("data.phone"), equalTo("15267109086"));
         assertThat(jsonPath.get("data.role"), equalTo("business"));
     }
+
+/*    @AfterSuite
+    public void afterSuite() {
+        String content = "";
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("extent.html"));
+            String str;
+            while ((str = in.readLine()) != null) {
+                content += str;
+            }
+            in.close();
+        } catch (IOException e) {
+
+        }
+        mailService.sendHtmlMail(new String[]{"76487526@qq.com"}, new String[]{}, "自动化测试", content);
+    }*/
 
 }

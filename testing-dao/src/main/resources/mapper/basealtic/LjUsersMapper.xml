@@ -32,6 +32,12 @@
     from lj_users
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByPhone" resultType="com.lj.testing.dao.pojo.basealtic.LjUsers">
+    select
+    <include refid="Base_Column_List"/>
+    from li_users
+    where phone = #{phone}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from lj_users
     where id = #{id,jdbcType=INTEGER}

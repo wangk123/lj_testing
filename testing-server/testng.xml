@@ -7,5 +7,6 @@
     </test>
     <listeners>
         <listener class-name="com.lj.testing.server.config.ExtentTestNGITestListener"/>
+        <!--<listener class-name="com.aventstack.extentreports.adapter.listener.ExtentITestListenerClassAdapter"/>-->
     </listeners>
 </suite>

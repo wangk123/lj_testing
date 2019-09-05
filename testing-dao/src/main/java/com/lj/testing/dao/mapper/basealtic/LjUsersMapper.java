@@ -1,6 +1,7 @@
 package com.lj.testing.dao.mapper.basealtic;
 
 import com.lj.testing.dao.pojo.basealtic.LjUsers;
+import org.apache.ibatis.annotations.Param;
 
 public interface LjUsersMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +15,6 @@ public interface LjUsersMapper {
     int updateByPrimaryKeySelective(LjUsers record);
 
     int updateByPrimaryKey(LjUsers record);
+
+    LjUsers selectByPhone(@Param(value = "phone") String phone);
 }

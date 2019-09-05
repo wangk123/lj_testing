@@ -2,13 +2,10 @@ package com.lj.testing.server.config;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import org.apache.commons.lang3.StringUtils;
 import org.testng.*;
 
 public class ExtentTestNGITestListener implements ITestListener {
-    private static ExtentReports extent = ExtentManager.createInstance("extent.html");
-    //private static ThreadLocal parentTest = new ThreadLocal();
-    //private static ThreadLocal test = new ThreadLocal();
+    private static ExtentReports extent = ExtentManager.createInstance("test-output/report.html");
     private static ThreadLocal<ExtentTest> parentTest = new ThreadLocal<>();
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
